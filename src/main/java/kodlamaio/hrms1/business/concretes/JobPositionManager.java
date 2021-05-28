@@ -7,6 +7,8 @@ package kodlamaio.hrms1.business.concretes;
 
 import java.util.List;
 import kodlamaio.hrms1.business.abstracts.JobPositionService;
+import kodlamaio.hrms1.core.utilities.result.Result;
+import kodlamaio.hrms1.core.utilities.result.SuccessResult;
 import kodlamaio.hrms1.dataaccess.abstracts.JobPositionDao;
 import kodlamaio.hrms1.entities.concretes.JobPosition;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,11 +27,19 @@ public class JobPositionManager implements JobPositionService{
     public JobPositionManager(JobPositionDao jobPositionDao){
     _jobPositionDao=jobPositionDao;
     }
-    
+
     @Override
     public List<JobPosition> getAll() {
      return _jobPositionDao.findAll();
     }
+
+    @Override
+    public Result add(JobPosition jobPosition) {
+        _jobPositionDao.save(jobPosition);
+        return new SuccessResult("New job position added.");   
+    }
+    
+  
     
 }
 

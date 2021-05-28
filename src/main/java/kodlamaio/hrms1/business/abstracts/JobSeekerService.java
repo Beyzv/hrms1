@@ -6,14 +6,17 @@
 package kodlamaio.hrms1.business.abstracts;
 
 import java.util.List;
+import kodlamaio.hrms1.core.utilities.result.DataResult;
 import kodlamaio.hrms1.core.utilities.result.Result;
-import kodlamaio.hrms1.entities.concretes.JobPosition;
+import kodlamaio.hrms1.entities.concretes.JobSeeker;
 
 /**
  *
  * @author omerfaruk
  */
-public interface JobPositionService {
-     List<JobPosition> getAll();
-     Result add(JobPosition jobPosition);
+public interface JobSeekerService{
+   
+    Result Register(JobSeeker jobSeeker);
+    DataResult<List<JobSeeker>>  getAll();   
+    DataResult<List<JobSeeker>> getById(int id );
 }

@@ -6,14 +6,16 @@
 package kodlamaio.hrms1.apicontrollers;
 
 import java.util.List;
-import kodlamaio.hrms1.business.abstracts.JobPositionService;
+import kodlamaio.hrms1.business.abstracts.EmployerService;
+import kodlamaio.hrms1.core.utilities.result.DataResult;
 import kodlamaio.hrms1.core.utilities.result.Result;
-import kodlamaio.hrms1.entities.concretes.JobPosition;
+import kodlamaio.hrms1.entities.concretes.Employer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -21,24 +23,27 @@ import org.springframework.web.bind.annotation.RestController;
  * @author omerfaruk
  */
 @RestController
-@RequestMapping("/api/jobPosition")
-public class JobPositionController {
-    
-    private JobPositionService _jobPositionService;
+@RequestMapping("/api/employer")
+public class EmployerController {
+        private EmployerService _employerService;
     
    @Autowired
-   public JobPositionController(JobPositionService jobPositionService){
-      _jobPositionService=jobPositionService;
+   public EmployerController(EmployerService employerService){
+      _employerService=employerService;
    }
    
     @GetMapping("/getall")
-    public List<JobPosition> getAll(){
-    return _jobPositionService.getAll();
-    }
+    public DataResult<List<Employer>> getAll(){
+    return _employerService.getAll();
+    } 
+    
     @PostMapping("/add")
-	public Result add(@RequestBody JobPosition jobPosition) {
-		return _jobPositionService.add(jobPosition);
+	public Result add(@RequestBody Employer employer) {
+		return _employerService.Register(employer);
 		
 	}
+    @GetMapping("/getbyid")
+    public DataResult<List<Employer>> getById(@RequestParam int id) {
+    return _employerService.getById(id);
+    } 
 }
-

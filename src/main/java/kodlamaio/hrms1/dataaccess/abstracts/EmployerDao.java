@@ -6,14 +6,15 @@
 package kodlamaio.hrms1.dataaccess.abstracts;
 
 import java.util.List;
-import kodlamaio.hrms1.entities.concretes.JobPosition;
+import kodlamaio.hrms1.entities.concretes.Employer;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  *
  * @author omerfaruk
  */
-public interface JobPositionDao extends JpaRepository<JobPosition, Integer>{
-   
-  JobPosition findByName(String name);
+public interface EmployerDao extends JpaRepository<Employer, Integer> {
+  
+    List<Employer> getByWebsite(String website);
+    List<Employer> getById(int id );
 }

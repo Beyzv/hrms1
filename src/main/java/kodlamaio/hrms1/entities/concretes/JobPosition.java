@@ -10,7 +10,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  *
@@ -18,14 +20,16 @@ import lombok.Data;
  */
 @Data
 @Entity
-@Table(name="jobPosition")
+@Table(name="job_position")
+@AllArgsConstructor
+@NoArgsConstructor
 public class JobPosition {
     
     @Id
     @GeneratedValue
-    @Column(name="jobPosition_id")
+    @Column(name="job_position_id")
     int id;
     
-    @Column(name="jobPosition_positionName")
+    @Column(name="job_position_position_name")
     String name;
 }

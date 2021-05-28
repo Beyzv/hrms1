@@ -5,15 +5,13 @@
  */
 package kodlamaio.hrms1.business.abstracts;
 
-import java.util.List;
-import kodlamaio.hrms1.core.utilities.result.Result;
-import kodlamaio.hrms1.entities.concretes.JobPosition;
-
 /**
  *
  * @author omerfaruk
  */
-public interface JobPositionService {
-     List<JobPosition> getAll();
-     Result add(JobPosition jobPosition);
+public interface AuthService {
+    
+     boolean isEmailVerified();
+     boolean CheckIfRealPerson();
+    boolean isEmailValid(String email);
 }
