@@ -11,6 +11,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import lombok.Data;
 
 /**
@@ -27,9 +29,13 @@ public class Employee  {
     @Column(name="employee_id")
      int id;
     
+     @NotBlank
+     @NotNull
      @Column(name="first_name")
      String firstName;
      
+     @NotBlank
+     @NotNull
      @Column(name="last_name")
      String lastName;
      

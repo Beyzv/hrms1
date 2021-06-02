@@ -11,6 +11,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import lombok.Data;
 
 /**
@@ -24,21 +26,31 @@ public class Employer {
             
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name="user_id")        
+    @Column(name="employer_id")        
     int id;
      
+    @NotBlank
+    @NotNull
     @Column(name="website")
     String website;
     
+    @NotBlank
+     @NotNull
     @Column(name="company_name")
     String companyName;
     
+    @NotBlank
+     @NotNull
     @Column(name="phone_number")
     String phoneNumber;
     
+    @NotBlank
+     @NotNull
     @Column(name="eposta")
     String ePosta;
     
+    @NotBlank
+     @NotNull
      @Column(name="password")
     String password;
     

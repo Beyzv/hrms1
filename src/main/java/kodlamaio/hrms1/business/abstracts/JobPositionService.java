@@ -16,4 +16,5 @@ import kodlamaio.hrms1.entities.concretes.JobPosition;
 public interface JobPositionService {
      List<JobPosition> getAll();
      Result add(JobPosition jobPosition);
+
 }

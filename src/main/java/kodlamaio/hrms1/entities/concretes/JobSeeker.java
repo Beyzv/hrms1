@@ -11,6 +11,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -29,22 +32,35 @@ public class JobSeeker{
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="user_id")     
     int id;
-    
+   
+    @NotBlank
+   @NotNull
     @Column(name="first_name")     
     String firstName;
-    
+   
+    @NotBlank
+     @NotNull
     @Column(name="last_name") 
     String lastName;
     
+    @NotBlank
+     @NotNull
     @Column(name="tc_no") 
     String TcNo;
     
+    @NotBlank
+     @NotNull
     @Column(name="year_of_birth")  
     int yearOfBirth;
     
+    @NotBlank
+     @NotNull
     @Column(name="password")
      String password;
     
+     @Email
+     @NotBlank
+     @NotNull
      @Column(name="eposta")
      String ePosta;
     
