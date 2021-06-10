@@ -1,0 +1,19 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package kodlamaio.hrms1.dataaccess.abstracts;
+
+import java.util.List;
+import kodlamaio.hrms1.entities.concretes.CvJobExperience;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+/**
+ *
+ * @author omerfaruk
+ */
+public interface CvJobExperienceDao  extends JpaRepository<CvJobExperience,Integer>{
+    List<CvJobExperience> getAllByJobSeekerId(int id);
+    List<CvJobExperience> getAllByJobSeekerIdOrderByEndDateDesc(int id);
+}
